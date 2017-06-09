@@ -87,7 +87,7 @@ class ResizingIntSet
   end
 
   def include?(num)
-    @store[bucket(num)].include?(num)
+    self[num].include?(num)
   end
 
   def bucket(num)
@@ -98,8 +98,7 @@ class ResizingIntSet
   private
 
   def [](num)
-    # optional but useful; return the bucket corresponding to `num`
-    #@store[num % num_buckets]
+    @store[num % num_buckets]
   end
 
   def num_buckets

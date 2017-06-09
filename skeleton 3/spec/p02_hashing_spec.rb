@@ -91,4 +91,5 @@ describe "Hashing" do
       expect(a.hash).not_to eq(b.hash)
     end
   end
+
 end
