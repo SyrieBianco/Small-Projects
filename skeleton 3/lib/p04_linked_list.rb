@@ -19,7 +19,13 @@ class Link
 end
 
 class LinkedList
+
+
   def initialize
+    @head = Link.new
+    @tail = Link.new
+    @head.prev = @tail
+    @tail.next = @head
   end
 
   def [](i)
@@ -28,12 +34,14 @@ class LinkedList
   end
 
   def first
+    @head.prev
   end
 
   def last
   end
 
   def empty?
+    @head.prev == @tail
   end
 
   def get(key)
@@ -43,6 +51,11 @@ class LinkedList
   end
 
   def append(key, val)
+    current_last = @tail.next
+    new_last = Link.new(key, val)
+    current_last.prev = new_last
+    new_last.next = current_last
+    new_last.prev = @tail
   end
 
   def update(key, val)
